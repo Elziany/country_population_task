@@ -111,5 +111,38 @@ class DataBase
 
     } 
 
+    function selectPopulation($country)
+    {
+        $country_query="select * from maintabel where country='$country'";
+        $result=mysqli_query($this->conn,$country_query);
+        $year_population=[];
+        $value_population=[];
+        $year=0;
+        
+        while($row=$result->fetch_assoc())
+        {
+          
+            $population_query="select value,year from population where maintabel_id=".$row['id'];
+          
+            $result2=mysqli_query($this->conn,$population_query);
+          
+            while($row2=$result2->fetch_assoc())
+            {
+               
+
+                 array_push($year_population,$row2['year']);
+                 array_push($value_population,$row2['value']);
+
+
+                
+            }
+
+          
+        }
+        return array_combine($year_population,$value_population);
+        
+    }
+  
+
 
 }

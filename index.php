@@ -82,10 +82,10 @@ else{
    <?php
    $pagenext+=1;
    
-   echo  "<a href=index.php?pagenext=".$pagenext.">next"."</a>";
+   echo  "<a style='margin:5px' href=index.php?pagenext=".$pagenext.">next"."</a>";
    ?>
   
-    
+   <button> <a href="population.php">page to get country population</a></button>
     
 </body>
 </html>
